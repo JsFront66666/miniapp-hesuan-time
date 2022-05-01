@@ -1,4 +1,4 @@
-import * as echarts from '../../ec-canvas/echarts.js';
+import * as echarts from '../../ec-canvas/echarts.min.js';
 const baseDate = new Date().toLocaleDateString();
 const lastDate = new Date(new Date().setDate(new Date().getDate()+7)).toLocaleDateString();
 const dataRules = [
@@ -142,7 +142,7 @@ const canvasOptions = {
         backgroundColor: colorSets.bg
     },
     xAxis: {
-        data: dataCache.categories,
+        data: [],
         axisTick:axisDesign.axisTick,
         axisLine:axisDesign.axisLine,
         splitLine:axisDesign.splitLine,
