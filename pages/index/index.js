@@ -1,6 +1,6 @@
 import * as echarts from '../../ec-canvas/echarts.min.js';
-const baseDate = new Date().toLocaleDateString();
-const lastDate = new Date(new Date().setDate(new Date().getDate()+7)).toLocaleDateString();
+const baseDate = getDateText(new Date());
+const lastDate = getDateText(new Date(new Date().setDate(new Date().getDate()+7)));
 const dataRules = [
     {
         'place': '地点1',
@@ -59,7 +59,6 @@ const dataCache = {
 };
 function generateDataES6() {
     for (let [category, index] of dataRules) {
-        const baseDate = new Date().toLocaleDateString();
         categories.push(category);
         for (let timeGroup of category.timeGroup) {
             if (timeGroup.contains(weekDay)) {
@@ -73,6 +72,14 @@ function generateDataES6() {
             }
         }
     }
+}
+function getDateText(dateObj){
+    const year = dateObj.getFullYear();
+    const month = dateObj.getMonth()+1;
+    const monthD = month<10?`0${month}`:month;
+    const date = dateObj.getDate();
+    const dateD = date<10?`0${date}`:date;
+    return `${year}-${monthD}-${dateD}`;
 }
 function getWeekDay(date){
     return +new Date(date).getDay();
@@ -105,9 +112,9 @@ function generateCanvasData(date) {
     return dataCache.canvasData[date];
 }
 const colorSets={
-    text:'#929ABA',
-    line:'#bdc2d7',
-    bar:'#929ABA',
+    text:'#6d6e62',
+    line:'#b1b39f',
+    bar:'#bfd508',
     bg:'rgba(245, 245, 245, 1)'
 }
 const axisDesign = {
@@ -136,7 +143,7 @@ const axisDesign = {
 const canvasOptions = {
     grid: {
         show: true,
-        left:'15%',
+        left:'20%',
         top:'5%',
         bottom:'5%',
         backgroundColor: colorSets.bg
@@ -210,8 +217,8 @@ const canvasOptions = {
     ]
 };
 function generateCanvasOptions(date){
-    canvasOptions.xAxis.data = dataCache.categories;
     canvasOptions.series[3].data = generateCanvasData(date);
+    canvasOptions.xAxis.data = dataCache.categories;
     return canvasOptions;
 }
 Page({

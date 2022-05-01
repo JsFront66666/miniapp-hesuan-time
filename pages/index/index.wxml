@@ -1,10 +1,10 @@
 <!--index.wxml-->
 <view class="container">
-    <h3 class='page-title'>附近核酸检测点时间表</h3>
+    <!-- <h3 class='page-title'>附近核酸检测点时间表</h3> -->
     <view class="section">
         <picker mode="date" value="{{date}}" start="{{baseDate}}" end="{{lastDate}}" bindchange="bindDateChange">
             <view class="picker picker-box">
-            <div>选择日期:</div>
+            <div>查看未来七天:</div>
             <div class='selected-Date'>{{date}}</div>
             <div>星期{{weekDay}}</div>
             </view>
@@ -19,6 +19,7 @@
             <li class="list-item">货车司机核酸检测请前往广场核酸采样点。</li>
             <li class="list-item">核酸检测首选周边村社点位，避免影响社区卫生服务中心正常医疗秩序。</li>
             <li class="list-item">信息参考自公众号发布，如有纰漏，请以官方发布信息为准。</li>
+            <li class="list-item">没有根据定位筛选地点的功能，只显示有限的地点。</li>
         </ul>
     </div>
 </view>
