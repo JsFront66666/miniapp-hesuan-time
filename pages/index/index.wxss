@@ -1,0 +1,32 @@
+/**index.wxss**/
+.echart_panel{
+  width: 750rpx;
+  height: 1000rpx;
+}
+.page-title{
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 25rpx auto;
+}
+.list-div{
+    color: #666666;
+    padding: 5rpx 20rpx;
+}
+.un-list{
+    list-style: decimal inside none;
+}
+.list-item{
+    display: list-item;
+    font-size: 0.75rem;
+}
+.picker-box{
+    display: flex-container;
+    flex-direction: column;
+    margin: 20rpx auto 5rpx;
+}
+.selected-Date{
+    margin: auto 20rpx;
+    padding: 10rpx 20rpx;
+    border:1px solid #dddddd;
+    border-radius: 15rpx;
+}
